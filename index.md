@@ -4,4 +4,4 @@
 
 layout: home
 ---
-blah blah
+![](wake.png)

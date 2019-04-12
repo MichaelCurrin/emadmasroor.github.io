@@ -4,7 +4,6 @@
 
 layout: home
 ---
-![](/assets/wake.png)
 
 I'm a PhD candidate in the [Engineering Mechanics program](https://beam.vt.edu/graduate/mechanics.html) at Virginia Tech, where I have been since spring 2018 working with Dr. Mark Stremler.
 

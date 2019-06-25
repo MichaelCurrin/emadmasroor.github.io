@@ -5,7 +5,7 @@
 layout: home
 ---
 
-<img src="https://emadmasroor.github.io/assets/emad.jpg" width="519" height="346" style="padding: 0 15px; float: left;"/> I'm a PhD candidate in the [Engineering Mechanics program](https://beam.vt.edu/graduate/mechanics.html) at Virginia Tech, where I have been since spring 2018, working with Dr. Mark Stremler.
+<img src="https://emadmasroor.github.io/assets/emad.png" width="371" height="346" style="padding: 0 15px; float: left;"/> I'm a PhD candidate in the [Engineering Mechanics program](https://beam.vt.edu/graduate/mechanics.html) at Virginia Tech, where I have been since spring 2018, working with Dr. Mark Stremler.
 
 Engineering Mechanics lies at the intersection of the _applied_ world of civil and mechanical engineering on the one hand, and the _theoretical_ world of physics and mathematics on the other. In particular, I study *fluid mechanics*: the science of fluids in motion. You can find out more about my current projects on the [research](/Research) page. 
 

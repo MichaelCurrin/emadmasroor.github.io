@@ -4,17 +4,7 @@ title: Research
 permalink: /Research/
 ---
 
-This is my research page
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
+##Wakes of Oscillating Cylinders
+I am working on an experimental study of the wake behind a cylinder oscillating perpedndicular to a uniform laminar flow. The experiments are conducted in a gravity-driven, inclined soap film channel which produces a two-dimensional flow that can be visualized with a high-speed camera.
 
 [jekyll-organization]: https://github.com/jekyll

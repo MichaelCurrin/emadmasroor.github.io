@@ -14,4 +14,9 @@ Vortex-dominated wakes can be effectively modeled as inifinte rows of point vort
 
 For instance, I am using point vortex models to study the stability of vortex streets and the forces exerted on vortex-shedding bluff bodies.
 
+## Side Projects
+
+### Computational Fluid Dynamics with Julia
+I am working on a small finite-volume solver of the 2-dimensional incompressible Navier-Stokes equations in the newly-developed programming language, [Julia](https://julialang.org/). Julia is a versatile programming language that solves the "two-language problem" by combining the user-friendly syntax of Python/MATLAB with the low-level processing power of C++ and Fortran. I will be posting the associated code to Github once the project is complete. 
+
 [jekyll-organization]: https://github.com/jekyll

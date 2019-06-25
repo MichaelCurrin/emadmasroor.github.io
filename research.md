@@ -7,6 +7,8 @@ permalink: /Research/
 ## Wakes of Oscillating Cylinders
 I am working on an experimental study of the wake behind a cylinder oscillating perpedndicular to a uniform laminar flow. The experiments are conducted in a gravity-driven, inclined soap film channel which produces a two-dimensional flow that can be visualized with a high-speed camera.
 
+![Wake in a Soap Film](/assets/wake2.png)
+
 I presented some of this work at the 71st annual meeting of the American Physical Society's Division of Fluid Dynamics in Atlanta, GA in November 2018, and at the International Union of Theoretical and Applied Mechanics' symposium on Vortex dynamics in science, nature and technology in San Diego, CA in June 2019.
 
 ## Point Vortex modeling of Exotic Wakes

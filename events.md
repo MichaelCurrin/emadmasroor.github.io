@@ -12,6 +12,6 @@ permalink: /Events/
 
 **July 2019**: Back in Davidson, NC to teach Engineering Problem Solving to middle school students at Duke Talent Identification Program.
 
-**August 2019**: Attended the Sao Paulo [School](http://usp.br/spnl/) of Advanced Sciences on Nonlinear Dynamics at Escola Politecnica do Universidade de Sao Paulo, Brazil, as a participant in the two-week summer school and a presenter at one of the poster sessions held at the school.
+**August 2019**: Attended the Sao Paulo [School](http://usp.br/spnl/) of Advanced Sciences on Nonlinear Dynamics at Escola Politecnica da Universidade de Sao Paulo, Brazil, as a participant in the two-week summer school and a presenter at one of the poster sessions held at the school.
 
 **August 2019**: Attended a [PhD Course](http://vortex.compute.dtu.dk/index.html) on Vorticity, Vortical Flows, and Vortex-Induced Vibrations at the Technical University of Denmark (DTU). 

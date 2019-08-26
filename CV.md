@@ -3,4 +3,4 @@ layout: page
 title: CV
 permalink: /CV/
 ---
-I will upload my CV here.
+[Curriculum Vitae]({{emadmasroor.github.io}}/assets/Emad_CV_August2019.pdf) (current as of August 2019)

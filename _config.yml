@@ -16,7 +16,7 @@
 title: Emad Masroor
 email: emad@vt.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Fluid Mechanics
+  Fluid Mechanics - Vortex dynamics in the wakes of bluff bodies
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://emadmasroor.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 

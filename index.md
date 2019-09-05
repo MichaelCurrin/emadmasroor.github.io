@@ -12,3 +12,4 @@ Engineering Mechanics lies at the intersection of the _applied_ world of civil a
 I'm passionate about teaching, and aside from my work as a TA at Virginia Tech, I also teach Engineering Problem Solving to middle school students at the [Duke Talent Identification Program](https://tip.duke.edu/) at Davidson, NC during the summer. We learn calculus and trig, build slingshots, bridges and circuits, and have a blast! 
 
 ![von Karman street](/assets/vonKarmanStreet.gif)
+<span style="font-size:2em;">contour plot of vorticity for the two-dimensional flow past a circular cylinder generated using [Basilisk](http://basilisk.fr)</span>

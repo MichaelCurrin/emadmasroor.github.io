@@ -16,4 +16,6 @@ permalink: /Events/
 
 **August 2019**: Attended a [PhD Course](http://vortex.compute.dtu.dk/index.html) on Vorticity, Vortical Flows, and Vortex-Induced Vibrations at the Technical University of Denmark (DTU).
 
-**November 2019**: Attended the annual meeting of the American Physical Society's [Division of Fluid Dynamics](https://www.aps.org/units/dfd/) in Seattle, WA. [Presentation](https://meetings.aps.org/Meeting/DFD19/Session/C12.1) : _Drag forces on a bluff body shedding a 2P wake_. 
+**November 2019**: Attended the annual meeting of the American Physical Society's [Division of Fluid Dynamics](https://www.aps.org/units/dfd/) in Seattle, WA. [Presentation](https://meetings.aps.org/Meeting/DFD19/Session/C12.1) : _Drag forces on a bluff body shedding a 2P wake_.
+
+**May 2020**: Defended my proposal and passed the preliminary examination, a Graduate School requirement at Virginia Tech. My dissertation proposal is titled: _Vortex dynamics and forces in the laminar wakes of bluff bodies_. 

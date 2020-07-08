@@ -5,7 +5,5 @@ permalink: /Sandbox/
 ---
 
 ## Mathematica code
-Here's some Mathematica code I wrote to solve for a class problem:
-<iframe src="https://www.wolframcloud.com/obj/caf14c09-e7c6-4200-add7-3ebfbffd49c9?_embed=iframe" width="600" height="800"></iframe>
-
-
+Here's some `Mathematica` code I wrote to solve for a class problem involving non-holonomic dynamics of interacting particles.
+<iframe src="https://www.wolframcloud.com/obj/a480d50e-1d00-49a1-b740-cca017912377?_embed=iframe" width="600" height="800"></iframe>

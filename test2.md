@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Test page"
-permalink: /Test/
+title: "Test page 2"
+permalink: /Test2/
 ---
 
 # Let's try and implement some LaTeX:

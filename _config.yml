@@ -26,6 +26,10 @@ emad_masroor:
         name: Emad Masroor
         email: emad@vt.edu
 
+# Feed by categories: Add more here as needed.
+feed:
+        categories:
+                - julia
 # Build settings
 markdown: kramdown
 theme: minima

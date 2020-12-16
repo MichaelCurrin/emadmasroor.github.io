@@ -539,33 +539,6 @@ ShowStreamlines(sol3)
 
 ![result](https://nextjournal.com/data/Qmb5TzhCmer9GT3zLa9gk7UPVTpvQuc24GehyisyFjvKGh?content-type=image/svg%2Bxml&node-id=65578c9e-a2b8-481d-8ecd-37b2a844d580&node-kind=output)
 
-[nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]:
-<https://nextjournal.com/data/QmVm2qrqEQxu171s5JKUdzpeqXZsKQaS9scnDtS9vUPyCX?content-type=image/svg%2Bxml&node-id=101f646d-64cd-43a3-bf98-9cbc58a5ea90&node-kind=output>
-
-[nextjournal#output#3b7f130c-274f-4f9a-87d9-fea41f983f99#result]:
-<https://nextjournal.com/data/QmRRbDuCR6jYcSC8HpJyRqRhhmR4goyhnsVs1189MKRG1o?content-type=image/svg%2Bxml&node-id=3b7f130c-274f-4f9a-87d9-fea41f983f99&node-kind=output>
-
-[nextjournal#file#b882696f-57dc-4901-bdc2-9b820d0ed944]:
-<https://nextjournal.com/data/QmbbX6m2YRUwBjbTMaW6dR1ussf3bjZx8LpHTS8nptLnNn?content-type=text/plain&node-id=b882696f-57dc-4901-bdc2-9b820d0ed944&filename=reference_u.txt&node-kind=file>
-
-[nextjournal#file#666d98f2-d9a7-4479-8dde-1fa48964c7cb]:
-<https://nextjournal.com/data/QmbkTk1KtCbCyaeb6gGS3xAJnFH47avkhKHV9Kaxwa4Mon?content-type=text/plain&node-id=666d98f2-d9a7-4479-8dde-1fa48964c7cb&filename=reference_v.txt&node-kind=file>
-
-[nextjournal#reference#2260d137-d2f1-4a31-b8c0-8f896e9327f2]:
-<#nextjournal#reference#2260d137-d2f1-4a31-b8c0-8f896e9327f2>
-
-[nextjournal#reference#b62ca592-500f-4160-8792-88b343e7a1fc]:
-<#nextjournal#reference#b62ca592-500f-4160-8792-88b343e7a1fc>
-
-[nextjournal#output#ee451f41-1b25-4c9e-be0d-38c0982b36ed#result]:
-<https://nextjournal.com/data/QmWTyHj3sZJDZktVfpA5da38VajccV7nLYBqTSEne3cNtz?content-type=image/svg%2Bxml&node-id=ee451f41-1b25-4c9e-be0d-38c0982b36ed&node-kind=output>
-
-[nextjournal#output#e9fe1644-7c06-4e31-aa96-0f60f482a2e5#result]:
-<https://nextjournal.com/data/QmY1Nu926psojQrrLuZJUFd2SHJ3xsFFiWJtXkMFKwWRcZ?content-type=image/svg%2Bxml&node-id=e9fe1644-7c06-4e31-aa96-0f60f482a2e5&node-kind=output>
-
-[nextjournal#output#65578c9e-a2b8-481d-8ecd-37b2a844d580#result]:
-<https://nextjournal.com/data/Qmb5TzhCmer9GT3zLa9gk7UPVTpvQuc24GehyisyFjvKGh?content-type=image/svg%2Bxml&node-id=65578c9e-a2b8-481d-8ecd-37b2a844d580&node-kind=output>
-
 <details id="com.nextjournal.article">
-<summary>This notebook was exported from <a href="https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia">https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia</a></summary>
+<summary>This notebook was originally exported from <a href="https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia">https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia</a></summary>
 </details>

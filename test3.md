@@ -549,5 +549,5 @@ ShowStreamlines(sol3)
 <https://nextjournal.com/data/Qmb5TzhCmer9GT3zLa9gk7UPVTpvQuc24GehyisyFjvKGh?content-type=image/svg%2Bxml&node-id=65578c9e-a2b8-481d-8ecd-37b2a844d580&node-kind=output>
 
 <details id="com.nextjournal.article">
-<summary>This notebook was exported from <a href="https://nextjournal.com/a/NL4Wxe7d5NkaSz673TsRk?change-id=CqV6EptQWEkUPZacq1PtPr">https://nextjournal.com/a/NL4Wxe7d5NkaSz673TsRk?change-id=CqV6EptQWEkUPZacq1PtPr</a></summary>
+<summary>This notebook was exported from <a href="https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia">https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia</a></summary>
 </details>

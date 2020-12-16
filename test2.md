@@ -16,4 +16,4 @@ $ x = 1 $
 
 Are you listening? I have made some **more** changes.
 
-{% include somecode.html %}
+{% include mathjax.html %}

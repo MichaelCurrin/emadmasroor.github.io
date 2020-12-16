@@ -89,16 +89,19 @@ Consider a system of linear equations of the form $$Ax=b$$. The vector x represe
 $$
 \begin{bmatrix}            x_{11} \\            x_{12} \\            \vdots \\            x_{1N} \\            x_{21} \\            x_{22} \\            x_{2N} \\            \vdots \\            x_{N1} \\            x_{N2} \\            x_{NN}          \end{bmatrix}
 $$
+
 A is a sparse, pentadiagonal matrix with (at most) five non-zero terms. These terms are the coefficients of the $$x_{ij}$$'th point as well as its neighbors to the north, south, east and west. Thus, using 'N,S,E,W' to represent the neighboring points and 'p' to represent current point, the general form of any row of this system of equations is as follows:
 
 $$
 a_p x_p + a_N x_N + a_S x_S + a_E x_E + a_W x_W = b_p \\ \implies a_p x_p + \sum_{NSEW}a_i x_i = b_p
 $$
+
 In the Gauss-Siedel method, we make a new guess for $$x^{n+1}$$ based on the current guess, $$x^n$$ using the following procedure:
 
 $$
 res = b_p - (a_p x_p + \sum_{NSEW}a_i x_i) \\ \Delta x = \frac{res}{a_p} \\ x_p^{n+1} = x^n_p + \Delta x 
 $$
+
 this is repeated until the residual falls below a small $$\epsilon$$.
 
 # Over-relaxation
@@ -108,11 +111,12 @@ The Gauss-Siedel algorithm can be significantly accelerated by adding an *over-r
 $$
 x^{n+1} = \lambda (x^n + \Delta x) + (1-\lambda)x^n 
 $$
+
 this essentially 'weights' the new value between the predicted value and the previous value. When $$\lambda = 1$$, this reverts back to the usual Gauss-Siedel algorithm. As $$\lambda \rightarrow 2$$, this weighs the new value more heavily toward the predicted value. One rule of thumb for the over-relaxation parameter is $$\lambda = 2 - \frac{1}{N-1}$$.
 
 In practice, we have found that over-relaxation only makes sense for solving the elliptic Poisson equation for $$\psi$$.
 
-```julia id=f4171e62-b45c-4eb4-b4bf-b2ce5318af35
+{% highlight julia %}
 function GaussSiedel!(ϕ,Ap,An,As,Ae,Aw,Rp,res; λ=1, maxiter = 1000)
   normRes = 1
   k = 0
@@ -139,13 +143,13 @@ function GaussSiedel!(ϕ,Ap,An,As,Ae,Aw,Rp,res; λ=1, maxiter = 1000)
   end
   return k
 end
-```
+{% endhighlight %}
 
 # Solving sparse $$Ax=b$$ with `\` or `cg!`
 
 In principle, Julia provides very simple syntax for matrix-inversion: `A\b` should be all we need. However, because we will be storing all variables as 2-D arrays, we need to first unwrap `x` and the right-hand side into a 1-D array, apply the matrix-inversion, and then wrap the updated `x` back into a 2-D array.
 
-```julia id=eb234ceb-3f07-48a4-816a-18e52199d07e
+{% highlight julia %}
 function LinearSolve!(A,x,b)
   # Solves the equation Ax = b assuming zero Dirichlet BCs everywhere
   Ny,Nx = size(b)
@@ -158,7 +162,7 @@ function LinearSolve!(A,x,b)
   cg!(x_vec,A,b_vec, log = true)
   x[2:end-1,2:end-1] .= reshape(x_int,(Ny,Nx))
 end
-```
+{% endhighlight %}
 
 # Discrete system of equations for $$\omega$$ and $$\psi$$
 
@@ -169,9 +173,10 @@ The equation for the streamfunction is already a Poisson equation, which is line
 $$
 \nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega \\ D_{xx} \psi + D_{yy} \psi = -\omega \\ \implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
 $$
+
 This only needs to be done once. We write a function which returns the 2-dimensional Laplacian using Julia's `SparseArray` type: 
 
-```julia id=904b3116-316a-4c9c-afad-6cfa23dd5632
+{% highlight julia %}
 function BuildPoissonMatrix(Ny,Nx,Δx,Δy)
   # This function returns a (Ny*Nx) × (Ny*Nx) matrix in the form of
   # a sparse array, corresponding to the discrete 2D Laplacian operator.
@@ -188,19 +193,18 @@ function BuildPoissonMatrix(Ny,Nx,Δx,Δy)
   Vsy = [fill(-2,Nx); fill(1, 2Nx-2)]
   D²x = sparse(Isx, Jsx, Vsx)
   D²y = sparse(Isy, Jsy, Vsy)
-  # D_xx = 1/(Δx^2) .* kron(sparse(I,Nx,Nx), D²x)
-  # D_yy = 1/(Δy^2) .* kron(D²y, sparse(I,Ny,Ny))
   D_yy = 1/(Δy^2) .* kron(sparse(I,Nx,Nx), D²x)
   D_xx = 1/(Δx^2) .* kron(D²y, sparse(I,Ny,Ny))
   Lap = D_xx + D_yy
 end
-```
+{% endhighlight %}
 
 # Evolution equation for $$\omega$$
 
 $$
 \frac{\partial \omega}{\partial t} + \boldsymbol{u} \cdot \nabla \omega = \frac{1}{Re}\nabla^2 \omega
 $$
+
 We treat the parabolic part (i.e. the diffusion term) of this equation implicitly, but the hyperbolic part (i.e. the advection term) explicitly. This is because if we were to treat the term term $$\boldsymbol{u} \cdot \nabla \omega$$ implicitly with a central-difference scheme, we would get a non-diagonally-dominant matrix, which is not guaranteed to converge using the iterative matrix-solving techniques. If an upwind scheme is used, we can then treat the advection term implicitly as well. 
 
 We can write a discrete version of the evolution equation for $$\omega$$ as follows:
@@ -208,14 +212,16 @@ We can write a discrete version of the evolution equation for $$\omega$$ as foll
 $$
 \frac{\omega^{n+1}-\omega^n}{\Delta t} + (D_y \psi^n D_x \omega^n -D_x \psi^n D_y \omega^n) = Re^{-1}(D_{xx}\omega^{n+1}+D_{yy}\omega^{n+1})
 $$
+
 where the superscript n denotes the value at the current (known) timestep, and the superscript n+1 denotes the value at the future (unknown) timestep. The diffusion term is treated implicitly, hence the n+1 there, while the advection term is treated explicitly, hence the n there. The time-derivative term has been treated fully implicitly with a first-order backwards Euler scheme, i.e. $$\dot{\omega}^{n+1} \approx \frac{\omega^{n+1}-\omega^{n}}{\Delta t}$$. Collecting the unknown terms on the left-hand side and the known terms on the right-hand side, we get:
 
 $$
 \left[ \Delta t ^{-1} \boldsymbol 1  - Re^{-1}D_{xx} - Re^{-1}D_{yy} \right] \omega^{n+1} = - \left[ D_y \psi^n D_x -D_x \psi^n D_y + \Delta t^{-1}\boldsymbol 1 \right] \omega^n
 $$
+
 The above is also, of course, a system of linear equations of the form $$Ax=b$$ and its diagonal dominance is guaranteed. Hence, it too can be solved using iterative methods. We build the matrix (in practice, only a set of coefficients, since we will solve this particular equation using the Gauss-Siedel technique) once, at the beginning:
 
-```julia id=ba3b62fe-e29e-4134-81d4-522a0afa9c79
+{% highlight julia %}
 function BuildAdvectionDiffusionCoefficients(Re,Δt,Δx,Δy)
   # Time-derivative
   ap = 1/Δt
@@ -227,11 +233,11 @@ function BuildAdvectionDiffusionCoefficients(Re,Δt,Δx,Δy)
   ae = -1/(Re*Δx^2)
   return ap,an,as,ae,aw
 end
-```
+{% endhighlight %}
 
 On the other hand, the right-hand side of this equation will evidently be different at each time step, since the explicit term $$\boldsymbol{u} \cdot \nabla \omega$$ changes at every step. The following function, therefore, will be called at each time step:
 
-```julia id=664ce164-8d26-4688-91c0-8f0f527acf2f
+{% highlight julia %}
 function BuildAdvectionDiffusionRHS!(Rp,ϕ,ψ,Δt,Δx,Δy,Ny,Nx,Re)
   # Time derivative
   Rp .= ϕ/Δt
@@ -253,13 +259,14 @@ function BuildAdvectionDiffusionRHS!(Rp,ϕ,ψ,Δt,Δx,Δy,Ny,Nx,Re)
     end
   end
 end
-```
+{% endhighlight %}
 
 It is straightforward to replace the first-order backwards Euler time-stepping scheme with a second-order backwards Euler scheme. The only difference is that an additional set of $$\omega$$'s needs to be stored, and the time-derivative terms in the matrix as well as the RHS need to be slightly modified. The second-order backward scheme looks like this:
 
 $$
  \dot{\omega}^{n+1} \approx \frac{1.5 \omega^{n+1} - 2 \omega^n + 0.5 \omega^{n-1}}{\Delta t}
 $$
+
 thus, we would simply need to replace `Rp .= ϕ/Δt` with `Rp .= 2ϕ/Δt - ϕold/(2Δt)` inside the function `BuildAdvectionDiffusionRHS!`, and replace `ap = 1/Δt` with `3/(2Δt)` inside the function `BuildAdvectionDiffusionCoefficients`. 
 
 # Code utilities
@@ -268,20 +275,20 @@ thus, we would simply need to replace `Rp .= ϕ/Δt` with `Rp .= 2ϕ/Δt - ϕold
 
 In Julia, functions can be broadcast to multiple arguments. Hence, we only need a generic recording function:
 
-```julia id=1fa6d10b-b484-43b5-a1c3-2f9da50a4944
+{% highlight julia %}
 function RecordHistory!(ϕ,ϕ_old,ϕ_hist)
   Δϕ = norm(ϕ - ϕ_old)
   ϕ_old .= ϕ
   push!(ϕ_hist,Δϕ)
   return(Δϕ)
 end
-```
+{% endhighlight %}
 
 # Solution struct and associated functions
 
 We create a struct (essentially, a new type) representing a solution. The solver's output will be assigned to a new instance of this struct. We also create some methods associated with this object type:
 
-```julia id=f7e3a1ab-974e-4229-903e-be8f135580a5
+{% highlight julia %}
 struct Results
   ψ::Array
   ω::Array
@@ -297,19 +304,19 @@ ShowStreamlines(sol::Results) = contour(sol.x,sol.y,reverse(reverse(sol.ψ,dims=
           xlims=(sol.x[1],sol.x[end]),
           ylims=(sol.y[1],sol.y[end]),
           legend=:none,grid=:none)
-```
+{% endhighlight %}
 
 # Acquire dependencies
 
 The code depends on some Julia packages. Here, we will install the ones which are not already in the environment and then pin all of them. The following is therefore executed in a different runtime, whose environment will be exported.
 
-```julia id=e02007db-a270-4967-b625-619f8637e24a
+{% highlight julia %}
 using Pkg
 Pkg.add("IterativeSolvers")
 Pkg.pin("IterativeSolvers")
 Pkg.add("LaTeXStrings")
 Pkg.pin("LaTeXStrings")
-```
+{% endhighlight %}
 
 # Assemble code
 
@@ -329,7 +336,7 @@ The above functions will be assembled into a function called `LidDrivenCavity()`
 
 # Complete function
 
-```julia id=46deeb7f-55cc-4476-a96a-21c3e434c5f7
+{% highlight julia %}
 function LidDrivenCavity(;
     tfinal = Inf,
     Lx = 1, Ly = 1, CFL = 0.5, Re = 100,
@@ -396,26 +403,26 @@ function LidDrivenCavity(;
   # Create a struct containing the results
   Results(ψ,ω,hcat(ω_hist,ψ_hist),x,y,t,k0,Re)
 end
-```
+{% endhighlight %}
 
 # Solutions for the Lid-Driven Cavity
 
 # Classic test cast at Re = 100
 
-```julia id=101f646d-64cd-43a3-bf98-9cbc58a5ea90
+{% highlight julia %}
 using LinearAlgebra,SparseArrays,IterativeSolvers
 sol1 = LidDrivenCavity()
 using Plots
 ShowStreamlines(sol1)
-```
+{% endhighlight %}
 
 ![result][nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]
 
 This looks good. let's take a look at the convergence history:
 
-```julia id=3b7f130c-274f-4f9a-87d9-fea41f983f99
+{% highlight julia %}
 plot(log10.(sol1.hist),labels=["|Δω|" "|Δψ|"])
-```
+{% endhighlight %}
 
 ![result][nextjournal#output#3b7f130c-274f-4f9a-87d9-fea41f983f99#result]
 
@@ -425,7 +432,7 @@ and also, compare it with Ghia and Ghia's results:
 
 [reference_v.txt][nextjournal#file#666d98f2-d9a7-4479-8dde-1fa48964c7cb]
 
-```julia id=ee451f41-1b25-4c9e-be0d-38c0982b36ed
+{% highlight julia %}
 begin
   using DelimitedFiles,Plots,LaTeXStrings
   Nx,Ny,Lx,Ly = 65,65,1,1
@@ -451,7 +458,7 @@ begin
     label="Ghia and Ghia",
     markershape=:square,color=:red,yticks=:none,xticks=:none,legend=:left)
 end
-```
+{% endhighlight %}
 
 ![result][nextjournal#output#ee451f41-1b25-4c9e-be0d-38c0982b36ed#result]
 
@@ -463,12 +470,12 @@ end
 * `Re=250`
 * `tfinal=10`
 
-```julia id=e9fe1644-7c06-4e31-aa96-0f60f482a2e5
+{% highlight julia %}
 using LinearAlgebra,SparseArrays,IterativeSolvers
 sol2 = LidDrivenCavity(Lx=2,v_w=1,v_e=-1,u_n=0,Re=250,tfinal=10);
 using Plots
 ShowStreamlines(sol2)
-```
+{% endhighlight %}
 
 ![result][nextjournal#output#e9fe1644-7c06-4e31-aa96-0f60f482a2e5#result]
 
@@ -479,12 +486,12 @@ ShowStreamlines(sol2)
 * `Re=250`
 * `Ly=1.4`
 
-```julia id=65578c9e-a2b8-481d-8ecd-37b2a844d580
+{% highlight julia %}
 using LinearAlgebra,SparseArrays,IterativeSolvers
 sol3 = LidDrivenCavity(u_n=1,v_e=-1,Re=250,Ly=1.4);
 using Plots
 ShowStreamlines(sol3)
-```
+{% endhighlight %}
 
 ![result][nextjournal#output#65578c9e-a2b8-481d-8ecd-37b2a844d580#result]
 

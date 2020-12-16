@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Sample post"
+title: "Test page"
 permalink: /Test/
 usemathjax: true
 ---
@@ -9,4 +9,5 @@ usemathjax: true
 
 Let's see if posts work this way.
 I just made some changes
+
 $$ x = 1 $$

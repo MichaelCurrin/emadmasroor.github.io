@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Sample blog post"
+title: "CFD tutorial in Julia"
 tags: julia Nextjournal
-summary: "CFD tutorial in Julia"
 ---
 
 {% include mathjax.html %}

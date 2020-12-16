@@ -6,6 +6,8 @@ permalink: /Test2/
 
 # Let's try and implement some LaTeX:
 
+{% include somecode.html %}
+
 This should render:
 
 $$ x = 1 $$

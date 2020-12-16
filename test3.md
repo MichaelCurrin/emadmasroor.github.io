@@ -104,7 +104,7 @@ a_p x_p + a_N x_N + a_S x_S + a_E x_E + a_W x_W = b_p
 $$
 
 $$
-\implies a_p x_p + \sum_{NSEW}a_i x_i = b_p
+ a_p x_p + \sum_{NSEW}a_i x_i = b_p
 $$
 
 In the Gauss-Siedel method, we make a new guess for $$x^{n+1}$$ based on the current guess, $$x^n$$ using the following procedure:
@@ -197,7 +197,7 @@ D_{xx} \psi + D_{yy} \psi = -\omega
 $$
 
 $$
-\implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
+\frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
 $$
 
 This only needs to be done once. We write a function which returns the 2-dimensional Laplacian using Julia's `SparseArray` type: 
@@ -442,7 +442,7 @@ using Plots
 ShowStreamlines(sol1)
 {% endhighlight %}
 
-![result][nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]
+![result](nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result)
 
 This looks good. let's take a look at the convergence history:
 

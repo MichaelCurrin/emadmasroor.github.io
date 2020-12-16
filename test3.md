@@ -171,7 +171,7 @@ end
 The equation for the streamfunction is already a Poisson equation, which is linear. It is straightforward to cast it in the form Ax = b using finite differences:
 
 $$
-\nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega \\ D_{xx} \psi + D_{yy} \psi = -\omega \\ \implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
+\nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega \newline D_{xx} \psi + D_{yy} \psi = -\omega \\ \implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
 $$
 
 This only needs to be done once. We write a function which returns the 2-dimensional Laplacian using Julia's `SparseArray` type: 

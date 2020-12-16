@@ -442,7 +442,6 @@ using Plots
 ShowStreamlines(sol1)
 {% endhighlight %}
 
-![result](nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result)
 ![result](https://nextjournal.com/data/QmVm2qrqEQxu171s5JKUdzpeqXZsKQaS9scnDtS9vUPyCX?content-type=image/svg%2Bxml&node-id=101f646d-64cd-43a3-bf98-9cbc58a5ea90&node-kind=output)
 
 This looks good. let's take a look at the convergence history:
@@ -451,21 +450,21 @@ This looks good. let's take a look at the convergence history:
 plot(log10.(sol1.hist),labels=["|Δω|" "|Δψ|"])
 {% endhighlight %}
 
-![result][nextjournal#output#3b7f130c-274f-4f9a-87d9-fea41f983f99#result]
+![result](https://nextjournal.com/data/QmRRbDuCR6jYcSC8HpJyRqRhhmR4goyhnsVs1189MKRG1o?content-type=image/svg%2Bxml&node-id=3b7f130c-274f-4f9a-87d9-fea41f983f99&node-kind=output)
 
 and also, compare it with Ghia and Ghia's results:
 
-[reference_u.txt][nextjournal#file#b882696f-57dc-4901-bdc2-9b820d0ed944]
+![reference_u.txt](https://nextjournal.com/data/QmbbX6m2YRUwBjbTMaW6dR1ussf3bjZx8LpHTS8nptLnNn?content-type=text/plain&node-id=b882696f-57dc-4901-bdc2-9b820d0ed944&filename=reference_u.txt&node-kind=file)
 
-[reference_v.txt][nextjournal#file#666d98f2-d9a7-4479-8dde-1fa48964c7cb]
+![reference_v.txt](https://nextjournal.com/data/QmbkTk1KtCbCyaeb6gGS3xAJnFH47avkhKHV9Kaxwa4Mon?content-type=text/plain&node-id=666d98f2-d9a7-4479-8dde-1fa48964c7cb&filename=reference_v.txt&node-kind=file)
 
 {% highlight julia %}
 begin
   using DelimitedFiles,Plots,LaTeXStrings
   Nx,Ny,Lx,Ly = 65,65,1,1
   ψ1 = sol1.ψ
-  uref_along_y = readdlm([reference][nextjournal#reference#2260d137-d2f1-4a31-b8c0-8f896e9327f2],skipstart=1)[:,2:3]
-  vref_along_x = readdlm([reference][nextjournal#reference#b62ca592-500f-4160-8792-88b343e7a1fc],skipstart=1)[:,2:3]
+  uref_along_y = readdlm(reference_u.txt,skipstart=1)[:,2:3]
+  vref_along_x = readdlm(reference_v.txt,skipstart=1)[:,2:3]
   Ny,Nx  = size(ψ1)
   Δy = Ly/(Ny-1)
   Δx = Lx/(Nx-1)
@@ -487,7 +486,7 @@ begin
 end
 {% endhighlight %}
 
-![result][nextjournal#output#ee451f41-1b25-4c9e-be0d-38c0982b36ed#result]
+![result](https://nextjournal.com/data/QmWTyHj3sZJDZktVfpA5da38VajccV7nLYBqTSEne3cNtz?content-type=image/svg%2Bxml&node-id=ee451f41-1b25-4c9e-be0d-38c0982b36ed&node-kind=output)
 
 # Two symmetric gyres, Re = 250
 
@@ -504,7 +503,7 @@ using Plots
 ShowStreamlines(sol2)
 {% endhighlight %}
 
-![result][nextjournal#output#e9fe1644-7c06-4e31-aa96-0f60f482a2e5#result]
+![result](https://nextjournal.com/data/QmY1Nu926psojQrrLuZJUFd2SHJ3xsFFiWJtXkMFKwWRcZ?content-type=image/svg%2Bxml&node-id=e9fe1644-7c06-4e31-aa96-0f60f482a2e5&node-kind=output)
 
 # Orthogonal velocities
 
@@ -520,7 +519,7 @@ using Plots
 ShowStreamlines(sol3)
 {% endhighlight %}
 
-![result][nextjournal#output#65578c9e-a2b8-481d-8ecd-37b2a844d580#result]
+![result](https://nextjournal.com/data/Qmb5TzhCmer9GT3zLa9gk7UPVTpvQuc24GehyisyFjvKGh?content-type=image/svg%2Bxml&node-id=65578c9e-a2b8-481d-8ecd-37b2a844d580&node-kind=output)
 
 [nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]:
 <https://nextjournal.com/data/QmVm2qrqEQxu171s5JKUdzpeqXZsKQaS9scnDtS9vUPyCX?content-type=image/svg%2Bxml&node-id=101f646d-64cd-43a3-bf98-9cbc58a5ea90&node-kind=output>

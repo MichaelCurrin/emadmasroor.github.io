@@ -51,6 +51,7 @@ To derive implicit boundary conditions on the vorticity, let us write a Taylor e
 $$
 \psi_a \approx \psi_b + \underbrace{\frac{\partial \psi}{\partial n}|_{b}}_{u_t} \frac{\Delta n}{1!} + \underbrace{\frac{\partial^2 \psi}{\partial n^2}|_{b}}_{-\omega_b} \frac{\Delta n^2}{2!} + ... 
 $$
+
 The normal derivative of $$\psi$$ at a wall is simply the wall-tangential velocity. The second spatial derivative of $$\psi$$ at a wall is (what is left of) the Laplacian of $$\psi$$ at the wall, which by definition equals negative of the vorticity. Hence, we now have a relation between the wall vorticity $$\omega_b$$, the wall-tangential velocity $$u_t$$, and the value of the streamfunction:
 
 $$

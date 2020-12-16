@@ -69,9 +69,11 @@ The normal derivative of $$\psi$$ at a wall is simply the wall-tangential veloci
 $$
 \psi_a \approx \psi_b + u_t \Delta n - \omega_b \frac{\Delta n^2}{2}
 $$
+
 $$
 \omega_b \approx 2 \left[ \frac{\psi_b - \psi_a}{\Delta n^2} + \frac{u_t}{\Delta n}\right]
 $$
+
 In practice, we will use Dirichlet boundary conditions on $$\psi$$ and Thom's boundary conditions on $$\omega$$.
 
 {% highlight julia %}
@@ -100,6 +102,7 @@ A is a sparse, pentadiagonal matrix with (at most) five non-zero terms. These te
 $$
 a_p x_p + a_N x_N + a_S x_S + a_E x_E + a_W x_W = b_p
 $$
+
 $$
 \implies a_p x_p + \sum_{NSEW}a_i x_i = b_p
 $$
@@ -109,9 +112,11 @@ In the Gauss-Siedel method, we make a new guess for $$x^{n+1}$$ based on the cur
 $$
 res = b_p - (a_p x_p + \sum_{NSEW}a_i x_i)
 $$
+
 $$
 \Delta x = \frac{res}{a_p}
 $$
+
 $$
 x_p^{n+1} = x^n_p + \Delta x 
 $$
@@ -186,8 +191,11 @@ The equation for the streamfunction is already a Poisson equation, which is line
 
 $$
 \nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega$$
+
 $$
 D_{xx} \psi + D_{yy} \psi = -\omega
+$$
+
 $$
 \implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
 $$

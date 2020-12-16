@@ -27,7 +27,11 @@ end
 The governing equations are as follows:
 
 $$
-\frac{\partial \omega}{\partial t} + (\nabla^{\bot} \psi )\cdot \nabla \omega = \frac{1}{Re}\nabla^2 \omega \\ \nabla^2 \psi = -\omega
+\frac{\partial \omega}{\partial t} + (\nabla^{\bot} \psi )\cdot \nabla \omega = \frac{1}{Re}\nabla^2 \omega
+$$
+
+$$
+\nabla^2 \psi = -\omega
 $$
 
 The first equation is a parabolic-hyperbolic equation for $$\omega$$ where the advection velocity is given through the streamfunction, which is defined as follows:
@@ -36,7 +40,7 @@ $$
 \boldsymbol{u} =\nabla^{\bot} \psi \equiv \left( \frac{\partial \psi}{\partial y}, -\frac{\partial \psi}{\partial x}\right) \equiv (u,v)
 $$
 
-The second equation is an elliptic equation for $$\psi$$, specifically Poisson's equation with the vorticity as the source term. This equation proceeds directly from the definition of $$\omega$$ and $$\psi	$$:
+The second equation is an elliptic equation for $$\psi$$, specifically Poisson's equation with the vorticity as the source term. This equation proceeds directly from the definition of $$\omega$$ and $$\psi$$:
 
 $$
 \omega \equiv \nabla \times \boldsymbol{u} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = -\frac{\partial^2 \psi }{\partial x^2} - \frac{\partial^2 \psi }{\partial y^2} \equiv -\nabla^2 \psi
@@ -64,7 +68,8 @@ The normal derivative of $$\psi$$ at a wall is simply the wall-tangential veloci
 
 $$
 \psi_a \approx \psi_b + u_t \Delta n - \omega_b \frac{\Delta n^2}{2}
-\\
+$$
+$$
 \omega_b \approx 2 \left[ \frac{\psi_b - \psi_a}{\Delta n^2} + \frac{u_t}{\Delta n}\right]
 $$
 In practice, we will use Dirichlet boundary conditions on $$\psi$$ and Thom's boundary conditions on $$\omega$$.
@@ -93,13 +98,22 @@ $$
 A is a sparse, pentadiagonal matrix with (at most) five non-zero terms. These terms are the coefficients of the $$x_{ij}$$'th point as well as its neighbors to the north, south, east and west. Thus, using 'N,S,E,W' to represent the neighboring points and 'p' to represent current point, the general form of any row of this system of equations is as follows:
 
 $$
-a_p x_p + a_N x_N + a_S x_S + a_E x_E + a_W x_W = b_p \\ \implies a_p x_p + \sum_{NSEW}a_i x_i = b_p
+a_p x_p + a_N x_N + a_S x_S + a_E x_E + a_W x_W = b_p
+$$
+$$
+\implies a_p x_p + \sum_{NSEW}a_i x_i = b_p
 $$
 
 In the Gauss-Siedel method, we make a new guess for $$x^{n+1}$$ based on the current guess, $$x^n$$ using the following procedure:
 
 $$
-res = b_p - (a_p x_p + \sum_{NSEW}a_i x_i) \\ \Delta x = \frac{res}{a_p} \\ x_p^{n+1} = x^n_p + \Delta x 
+res = b_p - (a_p x_p + \sum_{NSEW}a_i x_i)
+$$
+$$
+\Delta x = \frac{res}{a_p}
+$$
+$$
+x_p^{n+1} = x^n_p + \Delta x 
 $$
 
 this is repeated until the residual falls below a small $$\epsilon$$.
@@ -171,7 +185,11 @@ end
 The equation for the streamfunction is already a Poisson equation, which is linear. It is straightforward to cast it in the form Ax = b using finite differences:
 
 $$
-\nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega \newline D_{xx} \psi + D_{yy} \psi = -\omega \\ \implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
+\nabla^2 \psi = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega$$
+$$
+D_{xx} \psi + D_{yy} \psi = -\omega
+$$
+\implies \frac{\psi_{i,j+1} - 2 \psi_{i,j} + \psi_{i,j-1}}{\Delta x^2} + \frac{\psi_{i+1,j} - 2 \psi_{i,j} + \psi_{i-1,j}}{\Delta y^2} = -\omega_{i,j}
 $$
 
 This only needs to be done once. We write a function which returns the 2-dimensional Laplacian using Julia's `SparseArray` type: 

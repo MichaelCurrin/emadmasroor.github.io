@@ -22,10 +22,7 @@ url: "https://emadmasroor.github.io" # the base hostname & protocol for your sit
 twitter_username: 
 github_username:  emadmasroor
 # Author details
-emad_masroor:
-        name: Emad Masroor
-        email: emad@vt.edu
-
+author: "Emad Masroor"
 # Feed by categories: Add more here as needed.
 feed:
         tags: true

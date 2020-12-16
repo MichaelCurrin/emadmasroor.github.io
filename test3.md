@@ -542,3 +542,4 @@ ShowStreamlines(sol3)
 
 <details id="com.nextjournal.article">
 <summary>This notebook was exported from <a href="https://nextjournal.com/a/NL4Wxe7d5NkaSz673TsRk?change-id=CqV6EptQWEkUPZacq1PtPr">https://nextjournal.com/a/NL4Wxe7d5NkaSz673TsRk?change-id=CqV6EptQWEkUPZacq1PtPr</a></summary>
+</details>

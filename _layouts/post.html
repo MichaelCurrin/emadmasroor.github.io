@@ -15,8 +15,8 @@ layout: default
 :"%b %d, %Y"}}</time></span><br/>
             <span class="category"><i class="icon-tag"></i> {{ page.categories | category_links }}</s
 pan><br/>
-            <span class="author"><i class="icon-user"></i> {% if page.author %}{{page.author}}{% else
-		    %}{{site.author}}{% endif%}</span><br/><br/>
+<span class="author"><i class="icon-user"></i> {% if page.author %}<i>{{page.author}}{% else
+		%}{{site.author}}</i>{% endif%}</span><br/><br/>
         </header>
 
 ---

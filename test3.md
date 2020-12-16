@@ -32,7 +32,7 @@ some text
 
 some text
 
-# Navier-Stokes solver
+## Navier-Stokes solver
 
 This is a solver for the two-dimensional unsteady viscous incompressible Navier-Stokes equations in $$\omega-\psi$$ formulation on a rectangular Cartesian grid. We discretize the domain using second-order centered finite differences, and march the governing equations forward in time implicitly. 
 
@@ -40,7 +40,7 @@ All linear systems are solved by using either a naive Gauss-Siedel relaxation sc
 
 We test the solver on the lid-driven cavity problem and compare results with Ghia & Ghia's solution.
 
-# Governing equations
+## Governing equations
 
 The governing equations are as follows:
 
@@ -64,7 +64,7 @@ $$
 \omega \equiv \nabla \times \boldsymbol{u} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = -\frac{\partial^2 \psi }{\partial x^2} - \frac{\partial^2 \psi }{\partial y^2} \equiv -\nabla^2 \psi
 $$
 
-# Boundary conditions
+### Boundary conditions
 
 In a rectangular domain $$\Omega$$, we have eight boundary conditions on $$\psi$$:
 
@@ -74,7 +74,7 @@ Four Neumann boundary coniditions: $$\frac{\partial \psi}{\partial n} = 0$$ on t
 
 For $$\omega$$, no explicit boundary conditions are given. Indeed, the vorticity at the wall is actually a crucial unknown in the Navier-Stokes equations with boundaries, since all vorticity in a fluid must have been first generated at boundaries.
 
-# Thom's Formula
+#### Thom's Formula
 
 To derive implicit boundary conditions on the vorticity, let us write a Taylor expansion for the streamfunction at a point adjacent to a wall, with the subscript 'a' representing the wall-adjacent point and the subscript b representing the point at the wall. 'n' is a coordinate representing the wall-normal direction, and $$\Delta n$$ is the spatial discretization in the direction normal to the wall.
 
@@ -103,11 +103,11 @@ function VorticityBoundaryConditions!(ω,ψ,Δx,Δy,un,us,ve,vw)
 end
 {% endhighlight %}
 
-# Linear solvers
+## Linear solvers
 
 In theory, of course, any matrix-inverting technique can be used with any equation of the form $$Ax=b$$. Here, we will use the native Julia matrix-inversion operator `\` (or the conjugate gradient algorithm `cg!` from [`IterativeSovlers.jl`](https://juliamath.github.io/IterativeSolvers.jl/dev/) ) for the Poisson equation for $$\psi$$ because the boundary conditions for that equation are easy to implement, and they don't change at each time step. For the advection-diffusion equation for $$\omega$$, however, we will use the Gauss-Siedel technique. This equation is by far the easier one to solve, so the computational penalty of a naive solver like Gauss-Siedel is not very high.
 
-# Solving sparse $$A x = b$$ with Gauss-Siedel
+### Solving sparse $$A x = b$$ with Gauss-Siedel
 
 Consider a system of linear equations of the form $$Ax=b$$. The vector x represents an unknown quantity on the entire grid, and is arranged in the following form:
 
@@ -141,7 +141,7 @@ $$
 
 this is repeated until the residual falls below a small $$\epsilon$$.
 
-# Over-relaxation
+### Over-relaxation
 
 The Gauss-Siedel algorithm can be significantly accelerated by adding an *over-relaxation* parameter $$\lambda$$. It can be added on to the end of each Gauss-Siedel iteration in the following way:
 
@@ -182,7 +182,7 @@ function GaussSiedel!(ϕ,Ap,An,As,Ae,Aw,Rp,res; λ=1, maxiter = 1000)
 end
 {% endhighlight %}
 
-# Solving sparse $$Ax=b$$ with `\` or `cg!`
+### Solving sparse $$Ax=b$$ with `\` or `cg!`
 
 In principle, Julia provides very simple syntax for matrix-inversion: `A\b` should be all we need. However, because we will be storing all variables as 2-D arrays, we need to first unwrap `x` and the right-hand side into a 1-D array, apply the matrix-inversion, and then wrap the updated `x` back into a 2-D array.
 
@@ -201,9 +201,9 @@ function LinearSolve!(A,x,b)
 end
 {% endhighlight %}
 
-# Discrete system of equations for $$\omega$$ and $$\psi$$
+## Discrete system of equations for $$\omega$$ and $$\psi$$
 
-# Poisson equation for $$\psi$$
+### Poisson equation for $$\psi$$
 
 The equation for the streamfunction is already a Poisson equation, which is linear. It is straightforward to cast it in the form Ax = b using finite differences:
 
@@ -243,7 +243,7 @@ function BuildPoissonMatrix(Ny,Nx,Δx,Δy)
 end
 {% endhighlight %}
 
-# Evolution equation for $$\omega$$
+### Evolution equation for $$\omega$$
 
 $$
 \frac{\partial \omega}{\partial t} + \boldsymbol{u} \cdot \nabla \omega = \frac{1}{Re}\nabla^2 \omega
@@ -313,9 +313,9 @@ $$
 
 thus, we would simply need to replace `Rp .= ϕ/Δt` with `Rp .= 2ϕ/Δt - ϕold/(2Δt)` inside the function `BuildAdvectionDiffusionRHS!`, and replace `ap = 1/Δt` with `3/(2Δt)` inside the function `BuildAdvectionDiffusionCoefficients`. 
 
-# Code utilities
+## Code utilities
 
-# Record changes
+### Record changes
 
 In Julia, functions can be broadcast to multiple arguments. Hence, we only need a generic recording function:
 
@@ -328,7 +328,7 @@ function RecordHistory!(ϕ,ϕ_old,ϕ_hist)
 end
 {% endhighlight %}
 
-# Solution struct and associated functions
+### Solution struct and associated functions
 
 We create a struct (essentially, a new type) representing a solution. The solver's output will be assigned to a new instance of this struct. We also create some methods associated with this object type:
 
@@ -350,7 +350,7 @@ ShowStreamlines(sol::Results) = contour(sol.x,sol.y,reverse(reverse(sol.ψ,dims=
           legend=:none,grid=:none)
 {% endhighlight %}
 
-# Acquire dependencies
+### Acquire dependencies
 
 The code depends on some Julia packages. Here, we will install the ones which are not already in the environment and then pin all of them. The following is therefore executed in a different runtime, whose environment will be exported.
 
@@ -362,9 +362,9 @@ Pkg.add("LaTeXStrings")
 Pkg.pin("LaTeXStrings")
 {% endhighlight %}
 
-# Assemble code
+## Assemble code
 
-# User-input parameters
+### User-input parameters
 
 The above functions will be assembled into a function called `LidDrivenCavity()`, which accepts a number of keyword arguments. These are all optional, since there are default values associated with them.
 
@@ -378,7 +378,7 @@ The above functions will be assembled into a function called `LidDrivenCavity()`
 * `printfreq`, prints output every this number of steps
 * `Re=100`, the Reynolds number
 
-# Complete function
+### Complete function
 
 {% highlight julia %}
 function LidDrivenCavity(;
@@ -449,9 +449,9 @@ function LidDrivenCavity(;
 end
 {% endhighlight %}
 
-# Solutions for the Lid-Driven Cavity
+## Solutions for the Lid-Driven Cavity
 
-# Classic test cast at Re = 100
+### Classic test cast at Re = 100
 
 {% highlight julia %}
 using LinearAlgebra,SparseArrays,IterativeSolvers
@@ -506,7 +506,7 @@ end
 
 ![result](https://nextjournal.com/data/QmWTyHj3sZJDZktVfpA5da38VajccV7nLYBqTSEne3cNtz?content-type=image/svg%2Bxml&node-id=ee451f41-1b25-4c9e-be0d-38c0982b36ed&node-kind=output)
 
-# Two symmetric gyres, Re = 250
+### Two symmetric gyres, Re = 250
 
 * `Lx=2`
 * `v_w=1`
@@ -523,7 +523,7 @@ ShowStreamlines(sol2)
 
 ![result](https://nextjournal.com/data/QmY1Nu926psojQrrLuZJUFd2SHJ3xsFFiWJtXkMFKwWRcZ?content-type=image/svg%2Bxml&node-id=e9fe1644-7c06-4e31-aa96-0f60f482a2e5&node-kind=output)
 
-# Orthogonal velocities
+### Orthogonal velocities
 
 * `u_n=1`
 * `v_e=-1`

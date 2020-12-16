@@ -28,8 +28,7 @@ emad_masroor:
 
 # Feed by categories: Add more here as needed.
 feed:
-        categories:
-                - julia
+        tags: true
 # Build settings
 markdown: kramdown
 theme: minima

@@ -14,14 +14,6 @@ All linear systems are solved by using either a naive Gauss-Siedel relaxation sc
 
 We test the solver on the lid-driven cavity problem and compare results with Ghia & Ghia's solution.
 
-# Test code highlighting
-{% highlight julia %}
-println("Hello, world")
-for i in 1:4
-	x[i] .= 5
-end
-{% endhighlight %}
-
 # Governing equations
 
 The governing equations are as follows:

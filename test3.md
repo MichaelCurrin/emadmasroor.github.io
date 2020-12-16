@@ -6,31 +6,7 @@ permalink: /Test3/
 
 {% include mathjax.html %}
 
-This is a static version of a [Nextjournal notebook](https://nextjournal.com/emad-masroor/CFD-tutorial-in-julia) which shows how to develop a two-dimensional finite-difference solver for the Navier-Stokes equations from scratch in Julia. A convenient interface to the code is provided in a high-level function with keyword arguments for the dimensions, spatial resolution, Reynolds number, and a few other parameters. Head over to the Nextjournal version to interact with the code and even remix it to start your own coding project!
-
-# Heading with one hash
-
-some text
-
-## Heading with two
-
-some text
-
-### Heading with three
-
-some text
-
-#### Heading with four
-
-some text
-
-##### Heading with five
-
-some text
-
-###### Heading with six
-
-some text
+This is a static version of a [Nextjournal notebook](https://nextjournal.com/emadmasroor/CFD-tutorial-in-julia) which shows how to develop a two-dimensional finite-difference solver for the Navier-Stokes equations from scratch in Julia. A convenient interface to the code is provided in a high-level function with keyword arguments for the dimensions, spatial resolution, Reynolds number, and a few other parameters. Head over to the Nextjournal version to interact with the code and even remix it to start your own coding project!
 
 ## Introduction
 
@@ -472,9 +448,9 @@ plot(log10.(sol1.hist),labels=["|Δω|" "|Δψ|"])
 
 and also, compare it with Ghia and Ghia's results:
 
-![reference_u.txt](https://nextjournal.com/data/QmbbX6m2YRUwBjbTMaW6dR1ussf3bjZx8LpHTS8nptLnNn?content-type=text/plain&node-id=b882696f-57dc-4901-bdc2-9b820d0ed944&filename=reference_u.txt&node-kind=file)
+[reference_u.txt](https://nextjournal.com/data/QmbbX6m2YRUwBjbTMaW6dR1ussf3bjZx8LpHTS8nptLnNn?content-type=text/plain&node-id=b882696f-57dc-4901-bdc2-9b820d0ed944&filename=reference_u.txt&node-kind=file)
 
-![reference_v.txt](https://nextjournal.com/data/QmbkTk1KtCbCyaeb6gGS3xAJnFH47avkhKHV9Kaxwa4Mon?content-type=text/plain&node-id=666d98f2-d9a7-4479-8dde-1fa48964c7cb&filename=reference_v.txt&node-kind=file)
+[reference_v.txt](https://nextjournal.com/data/QmbkTk1KtCbCyaeb6gGS3xAJnFH47avkhKHV9Kaxwa4Mon?content-type=text/plain&node-id=666d98f2-d9a7-4479-8dde-1fa48964c7cb&filename=reference_v.txt&node-kind=file)
 
 {% highlight julia %}
 begin

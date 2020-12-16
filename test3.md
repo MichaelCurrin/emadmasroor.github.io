@@ -69,14 +69,14 @@ $$
 $$
 In practice, we will use Dirichlet boundary conditions on $$\psi$$ and Thom's boundary conditions on $$\omega$$.
 
-```julia id=2600d5dc-7eb6-4da7-b545-500847cdd63f
+{% highlight julia %}
 function VorticityBoundaryConditions!(ω,ψ,Δx,Δy,un,us,ve,vw)
   ω[:,end] .= 2*((ψ[:,end]  - ψ[:,end-1] )/(Δx^2) .- ve/Δx)
   ω[:,1] .= 2*((ψ[:,1]  - ψ[:,2]   )/(Δx^2) .- vw/Δx)
   ω[end,:] .= 2*((ψ[end,:]  - ψ[end-1,:] )/(Δy^2) .+ us/Δy)
   ω[1,:] .= 2*((ψ[1,:]  - ψ[2,:]   )/(Δy^2) .+ un/Δy)
 end
-```
+{% endhighlight %}
 
 # Linear solvers
 

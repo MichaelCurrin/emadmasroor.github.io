@@ -44,7 +44,7 @@ Four Neumann boundary coniditions: $$\frac{\partial \psi}{\partial n} = 0$$ on t
 
 For $$\omega$$, no explicit boundary conditions are given. Indeed, the vorticity at the wall is actually a crucial unknown in the Navier-Stokes equations with boundaries, since all vorticity in a fluid must have been first generated at boundaries.
 
-## Thom's Formula
+# Thom's Formula
 
 To derive implicit boundary conditions on the vorticity, let us write a Taylor expansion for the streamfunction at a point adjacent to a wall, with the subscript 'a' representing the wall-adjacent point and the subscript b representing the point at the wall. 'n' is a coordinate representing the wall-normal direction, and $$\Delta n$$ is the spatial discretization in the direction normal to the wall.
 
@@ -74,7 +74,7 @@ end
 
 In theory, of course, any matrix-inverting technique can be used with any equation of the form $$Ax=b$$. Here, we will use the native Julia matrix-inversion operator `\` (or the conjugate gradient algorithm `cg!` from [`IterativeSovlers.jl`](https://juliamath.github.io/IterativeSolvers.jl/dev/) ) for the Poisson equation for $$\psi$$ because the boundary conditions for that equation are easy to implement, and they don't change at each time step. For the advection-diffusion equation for $$\omega$$, however, we will use the Gauss-Siedel technique. This equation is by far the easier one to solve, so the computational penalty of a naive solver like Gauss-Siedel is not very high.
 
-## Solving sparse $$A x = b$$ with Gauss-Siedel
+# Solving sparse $$A x = b$$ with Gauss-Siedel
 
 Consider a system of linear equations of the form $$Ax=b$$. The vector x represents an unknown quantity on the entire grid, and is arranged in the following form:
 
@@ -93,7 +93,7 @@ res = b_p - (a_p x_p + \sum_{NSEW}a_i x_i) \\ \Delta x = \frac{res}{a_p} \\ x_p^
 $$
 this is repeated until the residual falls below a small $$\epsilon$$.
 
-## Over-relaxation
+# Over-relaxation
 
 The Gauss-Siedel algorithm can be significantly accelerated by adding an *over-relaxation* parameter $$\lambda$$. It can be added on to the end of each Gauss-Siedel iteration in the following way:
 
@@ -133,7 +133,7 @@ function GaussSiedel!(ϕ,Ap,An,As,Ae,Aw,Rp,res; λ=1, maxiter = 1000)
 end
 ```
 
-## Solving sparse $$Ax=b$$ with `\` or `cg!`
+# Solving sparse $$Ax=b$$ with `\` or `cg!`
 
 In principle, Julia provides very simple syntax for matrix-inversion: `A\b` should be all we need. However, because we will be storing all variables as 2-D arrays, we need to first unwrap `x` and the right-hand side into a 1-D array, apply the matrix-inversion, and then wrap the updated `x` back into a 2-D array.
 
@@ -154,7 +154,7 @@ end
 
 # Discrete system of equations for $$\omega$$ and $$\psi$$
 
-## Poisson equation for $$\psi$$
+# Poisson equation for $$\psi$$
 
 The equation for the streamfunction is already a Poisson equation, which is linear. It is straightforward to cast it in the form Ax = b using finite differences:
 
@@ -188,7 +188,7 @@ function BuildPoissonMatrix(Ny,Nx,Δx,Δy)
 end
 ```
 
-## Evolution equation for $$\omega$$
+# Evolution equation for $$\omega$$
 
 $$
 \frac{\partial \omega}{\partial t} + \boldsymbol{u} \cdot \nabla \omega = \frac{1}{Re}\nabla^2 \omega
@@ -256,7 +256,7 @@ thus, we would simply need to replace `Rp .= ϕ/Δt` with `Rp .= 2ϕ/Δt - ϕold
 
 # Code utilities
 
-## Record changes
+# Record changes
 
 In Julia, functions can be broadcast to multiple arguments. Hence, we only need a generic recording function:
 
@@ -269,7 +269,7 @@ function RecordHistory!(ϕ,ϕ_old,ϕ_hist)
 end
 ```
 
-## Solution struct and associated functions
+# Solution struct and associated functions
 
 We create a struct (essentially, a new type) representing a solution. The solver's output will be assigned to a new instance of this struct. We also create some methods associated with this object type:
 
@@ -291,7 +291,7 @@ ShowStreamlines(sol::Results) = contour(sol.x,sol.y,reverse(reverse(sol.ψ,dims=
           legend=:none,grid=:none)
 ```
 
-## Acquire dependencies
+# Acquire dependencies
 
 The code depends on some Julia packages. Here, we will install the ones which are not already in the environment and then pin all of them. The following is therefore executed in a different runtime, whose environment will be exported.
 
@@ -305,7 +305,7 @@ Pkg.pin("LaTeXStrings")
 
 # Assemble code
 
-## User-input parameters
+# User-input parameters
 
 The above functions will be assembled into a function called `LidDrivenCavity()`, which accepts a number of keyword arguments. These are all optional, since there are default values associated with them.
 
@@ -319,7 +319,7 @@ The above functions will be assembled into a function called `LidDrivenCavity()`
 * `printfreq`, prints output every this number of steps
 * `Re=100`, the Reynolds number
 
-## Complete function
+# Complete function
 
 ```julia id=46deeb7f-55cc-4476-a96a-21c3e434c5f7
 function LidDrivenCavity(;
@@ -392,7 +392,7 @@ end
 
 # Solutions for the Lid-Driven Cavity
 
-## Classic test cast at Re = 100
+# Classic test cast at Re = 100
 
 ```julia id=101f646d-64cd-43a3-bf98-9cbc58a5ea90
 using LinearAlgebra,SparseArrays,IterativeSolvers
@@ -447,7 +447,7 @@ end
 
 ![result][nextjournal#output#ee451f41-1b25-4c9e-be0d-38c0982b36ed#result]
 
-## Two symmetric gyres, Re = 250
+# Two symmetric gyres, Re = 250
 
 * `Lx=2`
 * `v_w=1`
@@ -464,7 +464,7 @@ ShowStreamlines(sol2)
 
 ![result][nextjournal#output#e9fe1644-7c06-4e31-aa96-0f60f482a2e5#result]
 
-## Orthogonal velocities
+# Orthogonal velocities
 
 * `u_n=1`
 * `v_e=-1`

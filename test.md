@@ -5,9 +5,7 @@ permalink: /Test/
 usemathjax: true
 ---
 
-# Welcome
+# Let's try and implement some LaTeX:
 
-Let's see if posts work this way.
-I just made some changes
-
+This should render:
 $$ x = 1 $$

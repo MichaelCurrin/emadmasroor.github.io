@@ -6,6 +6,30 @@ permalink: /Test3/
 
 {% include mathjax.html %}
 
+# Heading with one hash
+
+some text
+
+## Heading with two
+
+some text
+
+### Heading with three
+
+some text
+
+#### Heading with four
+
+some text
+
+##### Heading with five
+
+some text
+
+###### Heading with six
+
+some text
+
 # Navier-Stokes solver
 
 This is a solver for the two-dimensional unsteady viscous incompressible Navier-Stokes equations in $$\omega-\psi$$ formulation on a rectangular Cartesian grid. We discretize the domain using second-order centered finite differences, and march the governing equations forward in time implicitly. 

@@ -4,6 +4,7 @@ title: "Test page 3"
 permalink: /Test3/
 ---
 
+{% include mathjax.html %}
 
 # Navier-Stokes solver
 

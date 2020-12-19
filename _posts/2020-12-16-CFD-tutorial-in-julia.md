@@ -6,7 +6,7 @@ tags: julia Nextjournal
 
 {% include mathjax.html %}
 
-This is a static version of a [Nextjournal notebook](https://nextjournal.com/emadmasroor/CFD-tutorial-in-julia) which shows how to develop a two-dimensional finite-difference solver for the Navier-Stokes equations from scratch in Julia. A convenient interface to the code is provided in a high-level function with keyword arguments for the dimensions, spatial resolution, Reynolds number, and a few other parameters. Head over to the Nextjournal version to interact with the code and even remix it to start your own coding project!
+This is a static version of a [Nextjournal notebook](https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia) which shows how to develop a two-dimensional finite-difference solver for the Navier-Stokes equations from scratch in Julia. A convenient interface to the code is provided in a high-level function with keyword arguments for the dimensions, spatial resolution, Reynolds number, and a few other parameters. Head over to the Nextjournal version to interact with the code and even remix it to start your own coding project!
 
 ## Introduction
 

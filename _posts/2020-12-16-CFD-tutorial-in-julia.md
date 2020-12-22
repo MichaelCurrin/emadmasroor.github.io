@@ -434,7 +434,7 @@ using Plots
 ShowStreamlines(sol1)
 {% endhighlight %}
 
-![result](https://nextjournal.com/data/QmVm2qrqEQxu171s5JKUdzpeqXZsKQaS9scnDtS9vUPyCX?content-type=image/svg%2Bxml&node-id=101f646d-64cd-43a3-bf98-9cbc58a5ea90&node-kind=output)
+![result][nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]
 
 This looks good. let's take a look at the convergence history:
 
@@ -512,6 +512,8 @@ ShowStreamlines(sol3)
 {% endhighlight %}
 
 ![result](https://nextjournal.com/data/Qmb5TzhCmer9GT3zLa9gk7UPVTpvQuc24GehyisyFjvKGh?content-type=image/svg%2Bxml&node-id=65578c9e-a2b8-481d-8ecd-37b2a844d580&node-kind=output)
+
+[nextjournal#output#101f646d-64cd-43a3-bf98-9cbc58a5ea90#result]: <https://nextjournal.com/data/QmVm2qrqEQxu171s5JKUdzpeqXZsKQaS9scnDtS9vUPyCX?content-type=image/svg%2Bxml&node-id=101f646d-64cd-43a3-bf98-9cbc58a5ea90&node-kind=output>
 
 <details id="com.nextjournal.article">
 <summary>This notebook was originally exported from <a href="https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia">https://nextjournal.com/emadmasroor/CFD-tutorial-in-Julia</a></summary>

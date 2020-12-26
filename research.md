@@ -8,7 +8,7 @@ permalink: /Research/
 Vortex-induced vibrations form a key part of the interaction between fluids and solids in the natural as well as man-made world. Fluid-structure interaction is responsible for much of the complexity of fluid flows.
 I am working on an experimental study of the wake behind a circular cylinder oscillating transversely to a uniform flow. The experiments are conducted in a gravity-driven, inclined soap film channel which produces a two-dimensional flow that can be visualized with a high-speed camera.
 
-![Wake in a Soap Film](/assets/wake2.png)
+![Wake in a Soap Film](/assets/wake3.jpg)
 
 I presented some of this work at the 71st annual meeting of the American Physical Society's [Division of Fluid Dynamics](https://meetings.aps.org/Meeting/DFD18/Session/M16.1) in Atlanta, GA in November 2018, and at the International Union of Theoretical and Applied Mechanics' [symposium](https://drive.google.com/file/d/1fMubzmWWRl5RkEdGKEX2yegpoHEUYuc1/view) on Vortex dynamics in science, nature and technology in San Diego, CA in June 2019.
 

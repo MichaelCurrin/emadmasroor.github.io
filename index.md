@@ -13,3 +13,5 @@ I'm passionate about teaching, and aside from my work as a TA at Virginia Tech, 
 
 ![von Karman street](/assets/vid1.mp4)
 <span style="font-size:10px;">contour plot of vorticity for the two-dimensional flow past a circular cylinder generated using [Basilisk](http://basilisk.fr)</span>
+
+{% include counter.html %}

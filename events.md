@@ -18,4 +18,8 @@ permalink: /Events/
 
 **November 2019**: Attended the annual meeting of the American Physical Society's [Division of Fluid Dynamics](https://www.aps.org/units/dfd/) in Seattle, WA. [Presentation](https://meetings.aps.org/Meeting/DFD19/Session/C12.1) : _Drag forces on a bluff body shedding a 2P wake_.
 
-**May 2020**: Defended my proposal and passed the preliminary examination, a Graduate School requirement at Virginia Tech. My dissertation proposal is titled: _Vortex dynamics and forces in the laminar wakes of bluff bodies_. 
+**May 2020**: Defended my proposal and passed the preliminary examination, a Graduate School requirement at Virginia Tech. My dissertation proposal is titled: _Vortex dynamics and forces in the laminar wakes of bluff bodies_.
+
+**December 2020**: Submitted a manuscript with Wenchao Yang and Mark Stremler to the _Journal of Fluids and Structures_. Title: `The wake of a transversely oscillating circular cylinder in a flowing soap film at low Reynolds number'.
+
+

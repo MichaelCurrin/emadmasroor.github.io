@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Fluid Mechanics
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://emadmasroor.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  emadmasroor
+# github_username:  emadmasroor
 # Author details
 author: "Emad Masroor"
 # Feed by categories: Add more here as needed.

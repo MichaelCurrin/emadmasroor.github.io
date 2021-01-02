@@ -19,6 +19,6 @@ I'm passionate about teaching, and aside from my work as a TA at Virginia Tech, 
 <div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0002-8770-1429" href="https://orcid.org/0000-0002-8770-1429" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a></div>
 
 
-<a href="https://orcid.org/{{ social.orcid | cgi_escape | escape }}"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
+<a href="https://orcid.org/0000-0002-8770-1429"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
 
 {% include counter.html %}

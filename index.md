@@ -13,7 +13,7 @@ I'm passionate about teaching, and aside from my work as a TA at Virginia Tech, 
 
 ![von Karman street](/assets/vonKarmanStreet.webp)
 
-<div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0002-8770-1429" href="https://orcid.org/0000-0002-8770-1429" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-8770-1429</a></div>
+<div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0002-8770-1429" href="https://orcid.org/0000-0002-8770-1429" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a></div>
 
 <span style="font-size:10px;">contour plot of vorticity for the two-dimensional flow past a circular cylinder generated using [Basilisk](http://basilisk.fr)</span>
 

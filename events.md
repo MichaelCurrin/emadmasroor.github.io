@@ -20,6 +20,8 @@ permalink: /Events/
 
 **May 2020**: Defended my proposal and passed the preliminary examination, a Graduate School requirement at Virginia Tech. My dissertation proposal is titled: _Vortex dynamics and forces in the laminar wakes of bluff bodies_.
 
+**October 2020**" Corrigendum published in the Journal of Fluid Mechanics. [10.1017/jfm.2020.604](https://doi.org/10.1017/jfm.2020.604): _Streamline patterns in 2P vortex street equilibria_.
+
 **December 2020**: Submitted a manuscript with Wenchao Yang and Mark Stremler to the _Journal of Fluids and Structures_. Title: `The wake of a transversely oscillating circular cylinder in a flowing soap film at low Reynolds number'.
 
 

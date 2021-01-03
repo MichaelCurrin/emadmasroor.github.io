@@ -3,10 +3,12 @@ email:
   href: 'mailto:'
   title: 'Email'
   fa-icon: 'fa-envelope-square'
+  icon-loc: '/assets/minima-social-icons.svg#github'
 
 github:
   id: 'emadmasroor'
   href: 'https://github.com/'
   title: 'GitHub'
   fa-icon: 'fa-github-square'
+  icon-loc: '/assets/minima-social-icons.svg#github'
 

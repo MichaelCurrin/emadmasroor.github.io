@@ -33,7 +33,7 @@
 	  {% for entry in sm %}
 	  {% assign key = entry | first %}
 	  {% if sm[key].id %}
-	  <p><a> href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" </a></p>
+	  <p><a> href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}"<svg class="svg-icon"><use xlink:href="{{ sm[key].icon-loc}}"></use></svg> </a></p>
 	  {% endif %}
 	  {% endfor %}
       </div>

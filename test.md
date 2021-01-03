@@ -17,3 +17,8 @@ stuff
 
 
 {% include social-media-links.html %}
+
+{% if site.data.social-media %}
+<div id="blah"> Hello, world </div>
+{% endif %}
+

@@ -28,8 +28,10 @@
             </a>
           </li>
           {% endif %}
-	  {% for entry in site.data.social-media %}
-	  <p> <a> {{ entry.href }} </a></p>
+	  <!-- Following advice from jreel.github.io  -->
+	  {% assign sm = site.data.social-media %}
+	  {% for entry in sm %}
+	  <p> <a> {{ entry }} </a></p>
 	  {% endfor %}
       </div>
 

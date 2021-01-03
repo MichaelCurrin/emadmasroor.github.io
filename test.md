@@ -20,5 +20,8 @@ stuff
 
 {% if site.data.social-media %}
 <div id="blah"> Hello, world </div>
+{% for entry in site.data.social-media %}
+<div id="blah2"> one entry detected! </div>
+{% endfor %}
 {% endif %}
 

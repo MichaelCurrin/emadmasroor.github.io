@@ -24,7 +24,7 @@ stuff
 {% for entry in sm %}
 <div id="blah2"> one entry detected! </div>
 {% assign key = entry | first %} 
-"sm = {{ sm }} and sm[key] = {{ sm[key] }} and sm[key].href = {{ sm[key].href }} and sm[key].id = {{ sm[key].id }} and sm[key].title = {{ sm[key].title }}"
+"sm[key] = {{ sm[key] }} and sm[key].href = {{ sm[key].href }} and sm[key].id = {{ sm[key].id }} and sm[key].title = {{ sm[key].title }}"
 {% endfor %}
 {% endif %}
 

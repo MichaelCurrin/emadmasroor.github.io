@@ -31,7 +31,10 @@
 	  <!-- Following advice from jreel.github.io  -->
 	  {% assign sm = site.data.social-media %}
 	  {% for entry in sm %}
+	  {% assign key = entry | first %}
+	  {% if sm[key].id %}
 	  <p> <a> {{ entry }} </a></p>
+	  {% endif %}
 	  {% endfor %}
       </div>
 

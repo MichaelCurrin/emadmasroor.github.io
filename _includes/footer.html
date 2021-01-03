@@ -33,7 +33,7 @@
 	  {% for entry in sm %}
 	  {% assign key = entry | first %}
 	  {% if sm[key].id %}
-	  <a> {{ entry }} </a>
+	  <a> {{ sm[key].href }} </a>
 	  {% endif %}
 	  {% endfor %}
       </div>

@@ -29,7 +29,8 @@ feed:
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-feed 
+  - jekyll-feed
+  - jekyll-fontawesome-svg
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

@@ -18,6 +18,9 @@ email: emad@vt.edu
 author:
         name: Emad Masroor
         email: emad@vt.edu
+social:
+        github: emadmasroor
+        orcid: 0000-0002-8770-1429
 description: >- # this means to ignore newlines until "baseurl:"
   Fluid Mechanics
 baseurl: "" # the subpath of your site, e.g. /blog

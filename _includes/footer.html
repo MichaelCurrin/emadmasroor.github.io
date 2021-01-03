@@ -33,7 +33,10 @@
 	  {% for entry in sm %}
 	  {% assign key = entry | first %}
 	  {% if sm[key].id %}
-	  <p><li><a> href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}"<svg class="svg-icon"><use xlink:href="{{ sm[key].icon-loc}}"></use></svg> </a></li></p>
+	  <p><li class="navigation__item_social">
+		  <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><svg class="svg-icon"><use xlink:href="{{ sm[key].icon-loc}}"></use></svg>
+		  </a>
+	  </li></p>
 	  {% endif %}
 	  {% endfor %}
       </div>

@@ -28,4 +28,4 @@ stuff
 {% endfor %}
 {% endif %}
 
-<a href="https://www.facebook.com/your-facebook-username" title="Facebook"><i class="fa fa-facebook-square"></i></a>
+<p><a href="https://www.facebook.com/your-facebook-username" title="Facebook"><i class="fa fa-facebook-square"></i></a></p>

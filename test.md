@@ -19,9 +19,12 @@ stuff
 {% include social-media-links.html %}
 
 {% if site.data.social-media %}
-<div id="blah"> Hello, world </div>
-{% for entry in site.data.social-media %}
+<div id="blah"> Hello, world. We have detected the data file "social-media". </div>
+{% assign sm = site.data.social-media %}
+{% for entry in sm %}
 <div id="blah2"> one entry detected! </div>
+{% assign key = entry | first %} 
+"sm = {{ sm }} and sm[key] = {{sm[key]}}"
 {% endfor %}
 {% endif %}
 
